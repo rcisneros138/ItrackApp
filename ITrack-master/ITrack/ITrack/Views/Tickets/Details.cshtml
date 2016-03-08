@@ -1,0 +1,82 @@
+﻿@model ITrack.Models.Tickets
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tickets</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeRequest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeRequest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeCompleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,9 @@
+﻿@model ITrack.ViewModel.Employees
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.DropDownListFor(m => m.selectedId, Model.employees, "--Select One--")
+Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")

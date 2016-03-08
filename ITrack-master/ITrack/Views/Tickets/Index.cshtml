@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ITrack.Models.Tickets>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if (User.IsInRole("MasterAdmin") || User.IsInRole("CompanyAdmin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeRequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeCompleted)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model)
+{
+    if(ViewBag.CompanyName == item.Company)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeRequest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeCompleted)
+            </td>
+            <td>
+                @if (User.IsInRole("MasterAdmin") || User.IsInRole("CompanyAdmin"))
+                {
+                @Html.ActionLink("Edit ", "Edit", new { id = item.ID })
+                    
+                @Html.ActionLink("Details ", "Details", new { id = item.ID })
+                     
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                }
+               
+            </td>
+        </tr>
+    }
+}
+
+
+
+</table>

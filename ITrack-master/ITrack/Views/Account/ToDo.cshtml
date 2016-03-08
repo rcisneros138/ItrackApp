@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ITrack.Models.Tracker>
+@{ string userName = User.Identity.Name; }
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>To Do List for Current user</h2>
+<p>@userName, these are your curent jobs.</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Employee == userName)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+            </tr>
+        }
+        else
+        {
+            //do not add items that do not own to the current user
+        }
+    }
+
+</table>
